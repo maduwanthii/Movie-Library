@@ -10,34 +10,35 @@
         <li><a href="#">SCHEDULE</a></li>
         <li><a href="#">MOVIE LIBRARY</a></li>
         <li><a href="#">LOCATION & CONTACT</a></li>
-        <li><a href="#"><img src="/assets/Icons/Menu White.svg" alt="Icon" /></a></li>
+        <li>
+          <a href="#"><img src="/assets/Icons/Menu White.svg" alt="Icon" /></a>
+        </li>
       </ul>
     </nav>
     <div v-if="isMenuOpen" class="menu-panel">
-  <button class="close-button" @click="toggleMenu">✕</button>
-  <ul class="panel-links">
-    <li><a href="#">LOCATION & CONTACT</a></li>
-    <li><a href="#">GALLERY</a></li>
-  </ul>
-</div>
+      <button class="close-button" @click="toggleMenu">✕</button>
+      <ul class="panel-links">
+        <li><a href="#">LOCATION & CONTACT</a></li>
+        <li><a href="#">GALLERY</a></li>
+      </ul>
+    </div>
   </header>
-     <hr class="favority-hr" />
+  <hr class="favority-hr" />
 </template>
-
 
 <script>
 export default {
-  name: 'Menu',
+  name: "Menu",
   data() {
     return {
-      isMenuOpen: false
+      isMenuOpen: false,
     };
   },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -57,12 +58,11 @@ header {
 .favority-hr {
   border: none;
   border-top: 0.5px solid #555;
-  margin: 0px
+  margin: 0px;
 }
 .Cinema Logo img {
   height: 20px;
 }
-
 
 nav {
   display: flex;
@@ -81,7 +81,6 @@ nav {
   padding: 0;
 }
 
-
 .head-menu a {
   color: white;
   text-decoration: none;
@@ -91,12 +90,10 @@ nav {
   text-transform: uppercase;
 }
 
-
 .head-menu a:hover,
 .head-menu a:focus {
   text-decoration: underline;
 }
-
 
 .head-menu img {
   height: 20px;
@@ -115,7 +112,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 66vh; /* 2/3 screen height */
+  height: 66vh;
   background-color: rgba(0, 0, 0, 0.95);
   z-index: 200;
   padding: 2rem;
@@ -158,6 +155,21 @@ nav {
   color: white;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .head-menu li:not(:last-child) {
+    display: none;
+  }
 
+  .head-menu {
+    gap: 0;
+  }
 
+  .logo img {
+    height: 20px;
+  }
+
+  nav {
+    padding: 0 1rem;
+  }
+}
 </style>

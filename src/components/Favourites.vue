@@ -4,95 +4,112 @@
       <div class="ui-top-companyname">Collectioon your favourites</div>
 
       <div class="search-wrapper">
-          <img src="/assets/Icons/Search White.svg" alt="Search Icon" class="search-icon" />
-        
-         <input
-      type="text"
-      v-model="searchQuery"
-      @input="searchMovies"
-      placeholder="Search and add movies"
-      class="search-input"
-    />
+        <img
+          src="/assets/Icons/Search White.svg"
+          alt="Search Icon"
+          class="search-icon"
+        />
+
+        <input
+          type="text"
+          v-model="searchQuery"
+          @input="searchMovies"
+          placeholder="Search and add movies"
+          class="search-input"
+        />
       </div>
     </div>
 
     <hr class="favority-divider" />
-     <div class="movie-grid">
+    <div class="movie-grid">
       <div class="movie-card" v-for="(movie, index) in movies" :key="index">
         <img :src="movie.image" alt="Movie Poster" class="movie-image" />
         <h3>{{ movie.title }}</h3>
-    <p class="movie-description" v-html="movie.description"></p>
-      
+        <p class="movie-description" v-html="movie.description"></p>
+
         <button class="close-btn" @click="removeMovie(index)">
-  <img src="/assets/Icons/Close White.svg" alt="Close" class="close-icon" />
-</button>
+          <img
+            src="/assets/Icons/Close White.svg"
+            alt="Close"
+            class="close-icon"
+          />
+        </button>
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>
 export default {
   data() {
     return {
-      searchQuery: '',
+      searchQuery: "",
       movies: [
         {
-          title: 'Batman Returns',
-           description: 'Lorem ipsum dolor sit amet,<br/>consetetur sadipscing elitr, sed diam<br/>nonumy eirmod tempor invidunt ut…',
-          image: '/assets/Images/Batman.jpg',
+          title: "Batman Returns",
+          description:
+            "Lorem ipsum dolor sit amet,<br/>consetetur sadipscing elitr, sed diam<br/>nonumy eirmod tempor invidunt ut…",
+          image: "/assets/Images/Batman.jpg",
         },
         {
-          title: 'Wild Wild West',
-          description: 'Lorem ipsum dolor sit amet,<br/>consetetur sadipscing elitr, sed diam<br/>nonumy eirmod tempor invidunt ut…',
-          image: '/assets/Images/Wild West.jpg',
+          title: "Wild Wild West",
+          description:
+            "Lorem ipsum dolor sit amet,<br/>consetetur sadipscing elitr, sed diam<br/>nonumy eirmod tempor invidunt ut…",
+          image: "/assets/Images/Wild West.jpg",
         },
         {
-          title: 'The Amazing Spiderman',
-           description: 'Lorem ipsum dolor sit amet,<br/>consetetur sadipscing elitr, sed diam<br/>nonumy eirmod tempor invidunt ut…',
-          image: '/assets/Images/Spiderman.jpg',
-        }
-      ]
+          title: "The Amazing Spiderman",
+          description:
+            "Lorem ipsum dolor sit amet,<br/>consetetur sadipscing elitr, sed diam<br/>nonumy eirmod tempor invidunt ut…",
+          image: "/assets/Images/Spiderman.jpg",
+        },
+      ],
     };
   },
   methods: {
     async searchMovies() {
-      if (this.searchQuery.trim() === '') return;
+      if (this.searchQuery.trim() === "") return;
 
       try {
-        const res = await fetch(`https://api.tvmaze.com/search/shows?q=${this.searchQuery}`);
+        const res = await fetch(
+          `https://api.tvmaze.com/search/shows?q=${this.searchQuery}`
+        );
         const data = await res.json();
 
         if (data.length > 0) {
           const show = data[0].show;
           const newMovie = {
             title: show.name,
-            description: show.summary?.replace(/<[^>]+>/g, '') || 'No description available.',
-            image: show.image?.medium || 'https://via.placeholder.com/210x295?text=No+Image',
+            description:
+              show.summary?.replace(/<[^>]+>/g, "") ||
+              "No description available.",
+            image:
+              show.image?.medium ||
+              "https://via.placeholder.com/210x295?text=No+Image",
           };
 
-          // Check if already in list
-          const exists = this.movies.find(movie => movie.title === newMovie.title);
+          const exists = this.movies.find(
+            (movie) => movie.title === newMovie.title
+          );
           if (!exists) {
             this.movies.push(newMovie);
           }
 
-          this.searchQuery = '';
+          this.searchQuery = "";
         }
       } catch (error) {
-        console.error('Movie search failed:', error);
+        console.error("Movie search failed:", error);
       }
     },
     removeMovie(index) {
       this.movies.splice(index, 1);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .favority {
   background: #151515;
   color: white;
@@ -114,10 +131,8 @@ export default {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
-  
 }
 
-/* Search input and icon container */
 .search-wrapper {
   display: flex;
   align-items: center;
@@ -128,14 +143,13 @@ export default {
 }
 
 .search-icon {
-height: 16px;
+  height: 16px;
   width: 16px;
   color: white;
   margin-right: 0.4rem;
   font-size: 1rem;
 }
 
-/* Input inside search */
 .search-input {
   background-color: transparent;
   border: none;
@@ -153,7 +167,7 @@ height: 16px;
 .favority-divider {
   border: none;
   border-top: 2px solid white;
-  margin: 0px
+  margin: 0px;
 }
 
 .movie-library {
@@ -180,29 +194,27 @@ height: 16px;
   border-radius: 8px;
   position: relative;
   width: calc(33.33% - 1rem);
-    padding: 2rem; 
-    text-align: left;
+  padding: 2rem;
+  text-align: left;
 }
 
 .movie-card h3 {
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
   font-size: 25px;
   font-weight: bold;
 }
 
 .movie-description {
-  font-family: 'Lucida Sans Unicode', sans-serif;
+  font-family: "Lucida Sans Unicode", sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: white; /* optional, to keep consistency */
 }
 
-
-
 .movie-image {
   width: 100%;
-  height: 550px; 
-  object-fit: cover; 
+  height: 550px;
+  object-fit: cover;
   border-radius: 0px;
   margin-bottom: 0.5rem;
 }
@@ -215,7 +227,7 @@ height: 16px;
   border: none;
   color: white;
   font-weight: bold;
-   border-radius: 0;
+  border-radius: 0;
   cursor: pointer;
   padding: 4px 8px;
 }
@@ -228,7 +240,7 @@ height: 16px;
   .search-wrapper {
     width: 100%;
     max-width: 100%;
-    margin-top: 0.5rem; 
+    margin-top: 0.5rem;
   }
 
   .search-input {
@@ -239,15 +251,15 @@ height: 16px;
     font-size: 1.1rem;
   }
   @media (max-width: 768px) {
-  .movie-card {
-    width: calc(50% - 1rem);
+    .movie-card {
+      width: calc(50% - 1rem);
+    }
   }
-}
 
-@media (max-width: 480px) {
-  .movie-card {
-    width: 100%;
+  @media (max-width: 480px) {
+    .movie-card {
+      width: 100%;
+    }
   }
-}
 }
 </style>
