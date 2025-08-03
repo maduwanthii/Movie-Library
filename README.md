@@ -1,5 +1,49 @@
-# Vue 3 + Vite
+# 🎬 Movie Library
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 🚀 Project Overview
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+A Vue.js-based Movie Library web app to browse and manage movies with a clean, responsive interface.
+
+---
+
+## 📋 Prerequisites
+
+- Node.js v16 or newer  
+- npm or yarn package manager  
+
+---
+
+## ⚙️ Setup & Run
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/maduwanthii/Movie-Library.git
+cd Movie-Library
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+Start the development server:
+
+bash
+Copy
+Edit
+npm run dev
+Open your browser and visit:
+
+arduino
+Copy
+Edit
+http://localhost:3000
+📁 Project Structure
+src/ — Source files (components, views, assets)
+
+public/ — Static files
+
+package.json — Project config and scripts
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
