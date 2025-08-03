@@ -7,7 +7,6 @@
     <p class="small-description">Lorem ipsum dolor sit amet, consetetur.</p>
 
     <div class="reach-content">
-      
       <form class="contact-form" @submit.prevent="handleSubmit">
         <div class="form-row">
           <div class="form-group">
@@ -17,7 +16,9 @@
               v-model="form.firstName"
               :class="{ error: errors.firstName }"
             />
-            <span class="error-message" v-if="errors.firstName">{{ errors.firstName }}</span>
+            <span class="error-message" v-if="errors.firstName">{{
+              errors.firstName
+            }}</span>
           </div>
           <div class="form-group">
             <label>Last name *</label>
@@ -26,7 +27,9 @@
               v-model="form.lastName"
               :class="{ error: errors.lastName }"
             />
-            <span class="error-message" v-if="errors.lastName">{{ errors.lastName }}</span>
+            <span class="error-message" v-if="errors.lastName">{{
+              errors.lastName
+            }}</span>
           </div>
         </div>
 
@@ -37,7 +40,9 @@
             v-model="form.email"
             :class="{ error: errors.email }"
           />
-          <span class="error-message" v-if="errors.email">{{ errors.email }}</span>
+          <span class="error-message" v-if="errors.email">{{
+            errors.email
+          }}</span>
         </div>
 
         <div class="form-group">
@@ -52,30 +57,31 @@
             v-model="form.message"
             :class="{ error: errors.message }"
           ></textarea>
-          <span class="error-message" v-if="errors.message">{{ errors.message }}</span>
+          <span class="error-message" v-if="errors.message">{{
+            errors.message
+          }}</span>
         </div>
 
         <p class="required-note">* Required fields</p>
 
-       <div class="form-footer">
-  <label class="checkbox">
-    <input type="checkbox" v-model="form.agree" />
-    I agree to the <a href="#" target="_blank">Terms & Conditions</a>
-  </label>
+        <div class="form-footer">
+          <label class="checkbox">
+            <input type="checkbox" v-model="form.agree" />
+            I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+          </label>
 
-  <div class="submit-container">
-    <button type="submit" class="submit-btn">SUBMIT</button>
-  </div>
-</div>
+          <div class="submit-container">
+            <button type="submit" class="submit-btn">SUBMIT</button>
+          </div>
+        </div>
       </form>
 
-    
       <div class="map-container">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.402331182533!2d-3.636257984603628!3d40.44978247936026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422f0734b31d13%3A0xa3f4452558e095a0!2sC.%20Salvador%20de%20Madariaga%2C%201%2C%2028027%20Madrid%2C%20Spain!5e0!3m2!1sen!2slk!4v1692966528931!5m2!1sen!2slk"
           width="100%"
           height="100%"
-          style="border:0;"
+          style="border: 0"
           allowfullscreen=""
           loading="lazy"
         ></iframe>
@@ -134,7 +140,6 @@ export default {
 </script>
 
 <style scoped>
-
 .submit-container {
   width: 100%;
   display: flex;
@@ -151,22 +156,19 @@ export default {
   gap: 1rem;
 }
 
-
-
 .top-name {
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 1.23rem;
   margin-top: 1rem;
   text-align: left;
   margin-bottom: 0rem;
   color: white; /* keep visible */
 }
 
-
 .small-description {
-  font-family: 'Lucida Sans Unicode', sans-serif;
-  font-size: 0.85rem;
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-size: 0.83rem;
   color: #ccc;
   text-align: left;
   margin-top: -0.5rem;
@@ -176,9 +178,8 @@ export default {
   display: flex;
   gap: 2rem;
   margin-top: 1rem;
-   text-align: left;
-    font-family: 'Lucida Sans Unicode', sans-serif;
-
+  text-align: left;
+  font-family: "Lucida Sans Unicode", sans-serif;
 }
 
 .contact-form {
@@ -186,12 +187,12 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-   font-family: 'Lucida Sans Unicode', sans-serif;
+  font-family: "Lucida Sans Unicode", sans-serif;
 }
 
 .map-container {
   flex: 2;
-  height:410px;
+  height: 410px;
   min-height: 550px;
 }
 
@@ -203,16 +204,16 @@ export default {
 
 .form-group {
   margin-bottom: 0.4rem;
-  
+
   display: flex;
   flex-direction: column;
 }
 
 .form-group label {
+  font-family: "Lucida Sans Unicode", sans-serif;
   margin-bottom: 0.2rem;
   font-size: 0.75rem;
 }
-
 
 input,
 textarea {
@@ -232,41 +233,37 @@ textarea.error {
   font-size: 0.75rem;
   color: red;
   margin-top: 0.2rem;
-  
 }
 
 .required-note {
   font-size: 0.75rem;
-  
 }
-
 
 .form-footer {
   display: flex;
   flex-direction: column; /* stack children vertically */
-  align-items: flex-start; 
+  align-items: flex-start;
   gap: 0.5rem;
 }
 
-
 .checkbox {
   font-size: 0.79rem;
-   font-family: 'Lucida Sans Unicode', sans-serif;
+  font-family: "Lucida Sans Unicode", sans-serif;
 }
 
 .checkbox a {
   color: #eceff3ff;
-   text-decoration: underline;
+  text-decoration: underline;
 }
 
 .submit-btn {
-  background: #BA8E23;
+  background: #ba8e23;
   color: white;
   border: none;
   padding: 0.6rem 1.5rem;
   border-radius: 4px;
   align-self: right;
-   max-width: 500px; 
+  max-width: 500px;
 }
 
 @media (max-width: 768px) {
@@ -278,7 +275,7 @@ textarea.error {
     max-height: 300px;
   }
 
-   .form-row {
+  .form-row {
     flex-direction: column; /* stack inputs vertically on mobile */
   }
 
@@ -291,7 +288,6 @@ textarea.error {
     min-height: 400px;
     max-height: 300px;
   }
-   
 
   .submit-container {
     justify-content: center; /* Center the button */

@@ -1,16 +1,9 @@
 <template>
   <div class="movie-library-page">
-    <!-- Header -->
-   
-
     <hr />
-
-    <!-- Hero Image -->
     <section class="hero">
       <img src="/assets/Images/Header Image2.jpg" alt="Theater" />
     </section>
-
-   
     <section class="movie-intro">
       <h2>Movie Library</h2>
       <p>
@@ -28,9 +21,10 @@ export default {
 };
 </script>
 
-<!-- Global styles -->
 <style>
-html, body, #app {
+html,
+body,
+#app {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -40,12 +34,13 @@ html, body, #app {
   font-family: Arial, sans-serif;
   scrollbar-width: none;
 }
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 </style>
 
-<!-- Scoped styles -->
 <style scoped>
 .movie-library-page {
   color: white;
@@ -55,7 +50,6 @@ html, body, #app {
   overflow-x: hidden;
 }
 
-/* Header */
 .site-header {
   position: fixed;
   top: 0;
@@ -92,7 +86,6 @@ html, body, #app {
   text-decoration: underline;
 }
 
-/* Hero Image */
 .hero {
   margin-top: 60px; /* below fixed header */
   height: calc(100vh - 60px);
@@ -105,24 +98,26 @@ html, body, #app {
   object-fit: cover;
 }
 
-/* Intro Section */
 .movie-intro {
   padding: 2rem;
   text-align: left;
 }
 
 .movie-intro h2 {
-  font-size: 2rem;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", Arial,
+    sans-serif;
+  font-size: 37px;
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
 
 .movie-intro p {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
+  font-size: 14px;
   color: #ccc;
   line-height: 1.6;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .main-nav {
     display: none;

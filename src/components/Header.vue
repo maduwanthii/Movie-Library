@@ -11,12 +11,15 @@
         <li><a href="#">MOVIE LIBRARY</a></li>
         <li><a href="#">LOCATION & CONTACT</a></li>
         <li>
-          <a href="#"><img src="/assets/Icons/Menu White.svg" alt="Icon" /></a>
+          <a href="#" @click.prevent="toggleMenu">
+            <img src="/assets/Icons/Menu White.svg" alt="Icon" />
+          </a>
         </li>
       </ul>
     </nav>
-    <div v-if="isMenuOpen" class="menu-panel">
-      <button class="close-button" @click="toggleMenu">✕</button>
+
+    <div :class="['menu-panel', { show: isMenuOpen }]" v-if="isMenuOpen">
+      <button class="close-button" @click="toggleMenu">×</button>
       <ul class="panel-links">
         <li><a href="#">LOCATION & CONTACT</a></li>
         <li><a href="#">GALLERY</a></li>
@@ -58,10 +61,7 @@ header {
 .favority-hr {
   border: none;
   border-top: 0.5px solid #555;
-  margin: 0px;
-}
-.Cinema Logo img {
-  height: 20px;
+  margin: 0;
 }
 
 nav {
@@ -70,6 +70,10 @@ nav {
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
+}
+
+.logo img {
+  height: 30px;
 }
 
 .head-menu {
@@ -82,12 +86,20 @@ nav {
 }
 
 .head-menu a {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Geneva, Verdana,
+    sans-serif;
   color: white;
   text-decoration: none;
   font-weight: 300;
-  font-size: 0.9rem;
+  font-size: 11px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.head-menu li:nth-child(-n + 5) a {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Geneva, Verdana,
+    sans-serif;
+  font-size: 11px;
 }
 
 .head-menu a:hover,
@@ -101,25 +113,28 @@ nav {
   padding-left: 0.5rem;
 }
 
-.head-menu Icon {
-  height: 30px;
-  width: auto;
-  padding-left: 0.5rem;
-}
-
 .menu-panel {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 66vh;
+  right: 0;
+  left: auto;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.95);
   z-index: 200;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; /* Left align contents */
   justify-content: flex-start;
+  text-align: left;
+
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-panel.show {
+  transform: translateX(0);
 }
 
 .panel-links {
@@ -127,6 +142,10 @@ nav {
   padding: 0;
   margin-top: 2rem;
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left align list items */
 }
 
 .panel-links li {
@@ -135,7 +154,9 @@ nav {
 
 .panel-links a {
   color: white;
-  font-size: 1.1rem;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Geneva, Verdana,
+    sans-serif;
+  font-size: 11px;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 400;
@@ -155,6 +176,7 @@ nav {
   color: white;
   cursor: pointer;
 }
+
 @media (max-width: 768px) {
   .head-menu li:not(:last-child) {
     display: none;
@@ -164,12 +186,27 @@ nav {
     gap: 0;
   }
 
-  .logo img {
-    height: 20px;
-  }
-
   nav {
     padding: 0 1rem;
+  }
+
+  .menu-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .menu-panel {
+    width: 33.3333%;
+  }
+
+  .head-menu li {
+    display: list-item;
+  }
+
+  .close-button {
+    top: 1rem;
+    right: 1.5rem;
   }
 }
 </style>

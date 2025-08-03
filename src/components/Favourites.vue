@@ -14,7 +14,7 @@
           type="text"
           v-model="searchQuery"
           @input="searchMovies"
-          placeholder="Search and add movies"
+          placeholder="Search title and add to grid"
           class="search-input"
         />
       </div>
@@ -128,7 +128,8 @@ export default {
 }
 
 .ui-top-companyname {
-  font-size: 1.5rem;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 24.5px;
   font-weight: bold;
   color: white;
 }
@@ -151,11 +152,12 @@ export default {
 }
 
 .search-input {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-size: 12px;
   background-color: transparent;
   border: none;
   outline: none;
   color: white;
-  font-size: 0.9rem;
   width: 300px;
   caret-color: white;
 }
@@ -200,13 +202,13 @@ export default {
 
 .movie-card h3 {
   font-family: "Trebuchet MS", sans-serif;
-  font-size: 25px;
+  font-size: 21.3px;
   font-weight: bold;
 }
 
 .movie-description {
   font-family: "Lucida Sans Unicode", sans-serif;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.5;
   color: white; /* optional, to keep consistency */
 }
