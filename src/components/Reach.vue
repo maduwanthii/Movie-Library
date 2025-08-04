@@ -202,6 +202,11 @@ export default {
   flex-wrap: wrap;
 }
 
+.form-row .form-group {
+  flex: 1; 
+  min-width: 0; 
+}
+
 .form-group {
   margin-bottom: 0.4rem;
 
