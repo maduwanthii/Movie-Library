@@ -13,6 +13,11 @@ A Vue.js-based Movie Library web app to browse and manage movies with a clean, r
 
 ---
 
+screen rec
+
+https://drive.google.com/file/d/1K0hq91aRp6qiLDgyws7dLQ9EQuOaBNTN/view?usp=drivesdk
+
+
 ## ⚙️ Setup & Run
 
 1. Clone the repository:
