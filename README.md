@@ -20,26 +20,19 @@ A Vue.js-based Movie Library web app to browse and manage movies with a clean, r
 ```bash
 git clone https://github.com/maduwanthii/Movie-Library.git
 cd Movie-Library
+
 Install dependencies:
-
-bash
-Copy
-Edit
 npm install
+
 Start the development server:
-
-bash
-Copy
-Edit
 npm run dev
-Open your browser and visit:
 
-arduino
-Copy
-Edit
+Open your browser and visit:
 http://localhost:3000
+
+
 📁 Project Structure
-src/ — Source files (components, views, assets)
+src/ — Source files (components,assets)
 
 public/ — Static files
 
